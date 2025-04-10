@@ -2,27 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Pull Stage') {
+        stage('Pull stage') {
             steps {
-                git 'https://github.com/SupriyaBombale/Jenkins.git'
-                sh '''ls'''
-                sh 'pwd'
-                echo 'Pull stage succeed'
-            }
-        }
-        stage('Build Stage') {
-            steps {
-                echo 'Build Stage succeed'
-            }
-        }
-        stage('Test stage') {
-            steps {
-                echo 'Testing done'
-            }
-        }
-        stage('Deploy Stage') {
-            steps {
-                echo 'Deployment Done '
+                git 'https://github.com/Sourabh-Ambhore/onlinebookstore_Source_code.git'
+                echo 'Pull stage suceed'
             }
         }
     }
