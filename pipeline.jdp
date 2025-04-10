@@ -6,6 +6,7 @@ pipeline {
             steps {
                 git 'https://github.com/Sourabh-Ambhore/onlinebookstore_Source_code.git'
                 echo 'Pull stage suceed'
+                echo 'Pull stage suceed2'
             }
         }
     }
