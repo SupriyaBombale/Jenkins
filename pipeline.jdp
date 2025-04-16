@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull Stage') {
             steps {
-                git 'https://github.com/SupriyaBombale/angular-java.git'
+                git 'https://github.com/Sourabh-Ambhore/angular-java.git'
                 sh '''ls'''
                 sh 'pwd'
                 echo 'Pull stage succeed'
