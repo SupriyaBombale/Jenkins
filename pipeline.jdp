@@ -2,11 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Pull stage') {
+        stage('Pull Stage') {
             steps {
                 git 'https://github.com/Sourabh-Ambhore/onlinebookstore_Source_code.git'
-                echo 'Pull stage suceed'
-                echo 'Pull stage suceed2'
+                sh '''ls'''
+                sh 'pwd'
+                echo 'Pull stage succeed'
+            }
+        }
+        stage('Build Stage') {
+            steps {
+                sh '/opt/maven/bin/mvn clean package '
+                echo 'Build Stage succeed'
+            }
+        }
+        stage('Test stage') {
+            steps {
+                echo 'Testing done'
+            }
+        }
+        stage('Deploy Stage') {
+            steps {
+                echo 'Deployment Done '
             }
         }
     }
