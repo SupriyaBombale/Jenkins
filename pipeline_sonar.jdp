@@ -15,15 +15,23 @@ pipeline {
                 sh '/opt/maven/bin/mvn clean package '
                 echo 'Build Stage succeed'
             }
-        }
-        stage('Test stage') {
+        }      
+       stage('Test stage') {
             steps {
-                echo 'Testing done'
-            }
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-cred') {
+                 sh '/opt/maven/bin/mvn sonar:sonar'                     
+                echo 'code quality checking done'
+                 }
+                  timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
         }
+
+        }
+        }
+        
         stage('Deploy Stage') {
             steps {
-                echo 'Deployment Done '
+                  echo 'Deployment Done '
             }
         }
     }
