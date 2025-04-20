@@ -104,3 +104,5 @@ cp webapps
 
 Bash Scripting
 Jenkins 
+
+For first time login to sonarqube ->give admin (user,pass)
