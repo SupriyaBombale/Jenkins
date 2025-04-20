@@ -12,6 +12,7 @@ systemctl start mysqld
 systemctl enable mysqld
 grep 'temporary password' /var/log/mysqld.log
 mysql_secure_installation
+#provide default password(provided by grep command) for first time and change to new password
 ```
 
 ### Install Java
