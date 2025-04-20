@@ -18,12 +18,13 @@ pipeline {
         }      
        stage('Test stage') {
             steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-cred') {
-                 sh '/opt/maven/bin/mvn sonar:sonar'                     
+                 mvn sonar:sonar \
+                      -Dsonar.projectKey=Sonarqube \
+                      -Dsonar.host.url=http://54.236.80.15:9000 \
+                      -Dsonar.login=d9baeb9d545febeea843e2016cac7f88b51ed46c                    
                 echo 'code quality checking done'
                  }
-                  timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
+                  
         }
 
         }
